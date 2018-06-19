@@ -40,6 +40,10 @@ public class App {
 						if (!numChekStr.matches("^[0-9]*$")) {
 							System.out.println(resultString);
 							continue;
+						}else if(numChekStr.isEmpty()){
+							//プラスマイナスのみだった場合など
+							System.out.println(resultString);
+							continue;
 						}
 
 						try {
@@ -53,7 +57,7 @@ public class App {
 
 						// 1000以下の非負整数
 						if (target <= 1000 & target > 0) {
-							if (target / 3 == 0) {
+							if (target % 3 == 0) {
 								//3の倍数の1000以下の非負整数の場合、 idiot
 								idiot = true;
 							}
