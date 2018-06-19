@@ -35,7 +35,7 @@ public class App {
 
 						for (int k = 0; k < numChekStr.length(); k++) {
 							try {
-								target = Integer.parseInt(args[0]);
+								target = Integer.parseInt(args[i]);
 							} catch (NumberFormatException e) {
 								//数字以外有
 								numErr = true;
@@ -50,7 +50,7 @@ public class App {
 						}
 
 						try {
-							target = Integer.parseInt(args[0]);
+							target = Integer.parseInt(args[i]);
 						}catch (Exception e) {
 							//ここでエラーが出るということは桁あふれ
 							//1000以上もしくは0未満確定なのでinvalid扱い
