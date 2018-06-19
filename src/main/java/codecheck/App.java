@@ -1,5 +1,8 @@
 package codecheck;
 
+import java.text.Normalizer;
+import java.text.Normalizer.Form;
+
 public class App {
 	public static void main(String[] args) {
 
@@ -20,14 +23,18 @@ public class App {
 					boolean numErr = false;
 					//引数を変換 文字だったりした場合はExecption
 					try {
-						//TODO:int超える場合の考慮(MAX:2147483647)
 
+						//全角数字も数字扱いらしい
+						//面倒なので置換
+						args[i] = Normalizer.normalize(args[i], Form.NFKC);
+
+						//int超える場合の考慮(MAX:2147483647)
 						//数字判定
 						//先頭のプラスマイナス記号だけ削除して判定
 						String numChekStr;
 						if (args[i].startsWith("+")) {
 							numChekStr = args[i].substring(1);
-						} else if (args[i].startsWith("+")) {
+						} else if (args[i].startsWith("-")) {
 							numChekStr = args[i].substring(1);
 						} else {
 							numChekStr = args[i];
@@ -45,19 +52,18 @@ public class App {
 
 						//数字以外の場合はエラーログを出力して次の変数へ
 						if (numErr) {
-							System.out.println("数字ではありません。");
+							System.out.println(resultString);
 							continue;
 						}
 
 						try {
 							target = Integer.parseInt(args[i]);
-						}catch (Exception e) {
+						} catch (Exception e) {
 							//ここでエラーが出るということは桁あふれ
 							//1000以上もしくは0未満確定なのでinvalid扱い
 							System.out.println(resultString);
 							continue;
 						}
-
 
 						// 1000以下の非負整数
 						if (target <= 1000 & target > 0) {
