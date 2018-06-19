@@ -1,0 +1,66 @@
+[
+  {
+    "it": "3で割り切れる入力値に対して'idiot'と出力する",
+    "input": "87",
+    "output": [
+      "idiot"
+    ]
+  },
+  {
+    "it": " 3を含む入力値に対して'stupid'と出力する",
+    "input": "13",
+    "output": [
+      "stupid"
+    ]
+  },
+  {
+    "it": "3で割り切れて3を含む入力値に対して'dumb'と出力する",
+    "input": "63",
+    "output": [
+      "dumb"
+    ]
+  },
+  {
+    "it": "3で割り切れず3を含まない入力値に対して'smart'と出力する",
+    "input": "262",
+    "output": [
+      "smart"
+    ]
+  },
+  {
+    "it": "入力が整数値でない場合、'invalid'と出力する",
+    "input": "valid-number",
+    "output": [
+      "invalid"
+    ]
+  },
+  {
+    "it": "複数の入力値に対して、正しく複数行の出力を表示する",
+    "input": "27 59 83 39",
+    "output": [
+      "idiot",
+      "smart",
+      "stupid",
+      "dumb"
+    ]
+  },
+  {
+    "it": "不正値を含む複数の入力値に対して、正しく複数行の出力を表示する",
+    "input": "13 + 5 is 18",
+    "output": [
+      "stupid",
+      "invalid",
+      "smart",
+      "invalid",
+      "idiot"
+    ]
+  },
+  {
+    "it": "入力が全角数字を含む場合、その値に対して'invalid'と出力する",
+    "input": "13 １３",
+    "output": [
+      "stupid",
+      "invalid"
+    ]
+  }
+]
